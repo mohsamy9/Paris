@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paris Map — Lieux</title>
+
+  <!-- Leaflet (CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- (Optionnel) MarkerCluster (CDN) — app.js s’adapte si présent -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<div id="sheetOverlay" aria-hidden="true"></div>
+
+<body>
+  <div id="app">
+    <!-- LEFT: filtres + liste (style “ancien menu”) -->
+    <aside id="filters" class="bottom-sheet" aria-label="Panneau des filtres">
+  <!-- Handle + header (toujours visible en collapsed) -->
+  <div class="sheetHeader" id="sheetHeader">
+  <div class="sheetHandle" id="sheetHandle" aria-hidden="true"></div>
+
+  <input id="searchInput" type="text" placeholder="Rechercher (nom, tags, cuisine)" />
+
+  <button id="resetFilters" class="sheetReset" type="button">Réinitialiser</button>
+</div>
+
+
+  <!-- Contenu qui apparaît en half/full -->
+  <div class="sheetBody" id="sheetBody">
+    <div class="section">
+      <h3>Catégories</h3>
+      <div id="categoryLegendLeft"></div>
+    </div>
+
+    
+
+    <h2 class="placesTitle">Lieux</h2>
+    <div id="placesList"></div>
+  </div>
+</aside>
+
+
+    <!-- CENTER: map -->
+    <main id="map" aria-label="Carte interactive de Paris"></main>
+
+    <!-- RIGHT: sidebar -->
+    <aside id="sidebar" aria-label="Fiche lieu">
+      <button id="closeSidebar" title="Fermer">×</button>
+      <div id="sidebarContent">
+  <div class="emptyState">Clique sur un lieu pour afficher la fiche.</div>
+</div>
+
+    </aside>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <!-- (Optionnel) MarkerCluster JS -->
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <!-- Data -->
+  <script src="data/places.js"></script>
+
+  <!-- App -->
+  <script src="app.js"></script>
+</body>
+</html>
